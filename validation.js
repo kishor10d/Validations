@@ -4,7 +4,8 @@
 
 
 $(document).ready(function(){
-
+	
+	// Custom validation to validate mobile number 1 not equal to mobile number 2
     jQuery.validator.addMethod("notEqualTo", function(value, element)
        {
            if(value == $('#mobile1').val() && $('#mobile1').val() != "")
@@ -17,6 +18,7 @@ $(document).ready(function(){
            }
        },"");
        
+	   // Custom validation to validate less than values
        jQuery.validator.addMethod("lessThanBrothers", function(value, element)
        {
            if(value <= $('#no_of_brothers').val())
@@ -29,6 +31,7 @@ $(document).ready(function(){
            }
        },"");
        
+	   // Custom validation to validate less than values
        jQuery.validator.addMethod("lessThanSisters", function(value, element)
        {
            if(value <= $('#no_of_sisters').val())
@@ -41,13 +44,14 @@ $(document).ready(function(){
            }
        },"");
        
+	   // Custom validation to validate dropdown is selected with proper value or not
        jQuery.validator.addMethod("selected", function(value, element)
        {
            if(value == 0) { return false; }
           else { return true; }
        },"This field is required.");
        
-       
+       // Custom validation to validate greater than values like to income is greater than for income
        jQuery.validator.addMethod("greaterThan", function(value, element)
        {
 			var value = parseFloat(value);
@@ -59,7 +63,7 @@ $(document).ready(function(){
                 { return true; }
        },"To Salary is must greater than from.");
        
-       
+       // Custom validation to validate file extension ie. .jpg, .doc, .png etc.
        jQuery.validator.addMethod("acceptImgExtension", function(value, element)
        {
            if(value == "")
@@ -77,9 +81,9 @@ $(document).ready(function(){
            }
                      
           
-       }, "");
+       }, "Only JPG, JPEG and PNG files are allowed");
        
-       
+       // Custom validation to validate file extension ie. .jpg, .doc, .png etc.
        jQuery.validator.addMethod("acceptDocExtension", function(value, element)
        {
            if(value == "")
@@ -95,9 +99,10 @@ $(document).ready(function(){
               else 
                     { return false; } 
            }       
-       }, "");
+       }, "Only JPG, JPEG, PNG, DOC, DOCX, PDF files are allowed");
        
        
+	   // Custom validation with ajax call the check username already exist in database
        jQuery.validator.addMethod("checkUsername", function(value, element)
        {
            var response;
@@ -120,7 +125,8 @@ $(document).ready(function(){
                return response;
        }, "Username already taken.");
        
-       
+	   
+       // Custom validation with ajax call the check email already exist in database
        jQuery.validator.addMethod("checkEmailExist", function(value, element)
        {
            var response = false;
@@ -143,7 +149,7 @@ $(document).ready(function(){
            return response;
        }, "Email already taken.");
        
-       
+       // Custom validation with ajax call the check mobile number already exist in database
        jQuery.validator.addMethod("checkMobileExist", function(value, element)
        {
            var response = false;
@@ -166,6 +172,7 @@ $(document).ready(function(){
            return response;
        }, "Mobile number already registered.");
        
+	   // Custom validation with ajax call the check mobile number already exist in database
        jQuery.validator.addMethod("checkMobileExist2", function(value, element)
        {
            var response = false;
@@ -197,7 +204,7 @@ $(document).ready(function(){
            return response;
        }, "Mobile number already registered.");
        
-       
+       // Custom validation with ajax call the check phone number already exist in database
        jQuery.validator.addMethod("checkPhoneExist", function(value, element)
        {
            var response = false;
@@ -229,106 +236,10 @@ $(document).ready(function(){
            return response;
        }, "Phone number already registered.");
        
-	   
-	   jQuery.validator.addMethod('checkMobileExist1Same', function(value, element)
-	   {			
-			var response = false;
-           
-			var post_url_check_phone = baseurl +"profile/checkMobileExist1Same/";
-           
-			if(value == "")
-			{
-               response = true;
-			}
-			else
-			{
-				$.ajax({
-                      type: "POST",
-                      url: post_url_check_phone,
-                      data: {mob : value},
-                      dataType: "json",
-                      async: false
-				}).done(function(result){
-                    if(result.status == true)
-                    {
-                        response = false;
-                    }else
-                    {
-                        response = true;    
-                    }
-				});
-			}
-			return response;
-	   }, "Mobile number already registered.");
-	   
-		
-		jQuery.validator.addMethod('checkMobileExist2Same', function(value, element)
-		{
-			var response = false;
-           
-			var post_url_check_mobile2 = baseurl + "profile/checkMobileExist2Same/";
-           
-			if(value == "")
-			{
-				response = true;
-			}
-			else
-			{
-				$.ajax({
-                      type: "POST",
-                      url: post_url_check_mobile2,
-                      data: {mob : value},
-                      dataType: "json",
-                      async: false
-				}).done(function(result){
-                    if(result.status == true)
-                    {
-                        response = false;
-                    }else
-                    {
-                        response = true;    
-                    }
-				});
-			}
-			return response;
-		}, "Mobile number already registered.");
-		
-		
-		jQuery.validator.addMethod('checkPhoneExistSame', function(value, element)
-		{
-			var response = false;
-           
-			var post_url_check_mobile2 = baseurl + "profile/checkPhoneExistSame/";
-           
-			if(value == "")
-			{
-				response = true;
-			}
-			else
-			{
-				$.ajax({
-                      type: "POST",
-                      url: post_url_check_mobile2,
-                      data: {mob : value},
-                      dataType: "json",
-                      async: false
-				}).done(function(result){
-                    if(result.status == true)
-                    {
-                        response = false;
-                    }else
-                    {
-                        response = true;    
-                    }
-				});
-			}
-			return response;
-		},"Phone number already registered.");
-	   
-	   
-       
+		// Custom validation to validate date format in 'dd/mm/yyyy' and 'dd/mm/yy' format
        jQuery.validator.addMethod('checkDateFormat', function(value, element){
            
+		   // date format regular expression which allows 'dd/mm/yyyy' and 'dd/mm/yy' format
            var stringPattern = /^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[1,3-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$/gm;
            
            if(stringPattern.test(value))
@@ -341,7 +252,7 @@ $(document).ready(function(){
            }
        },"Please enter correct date.");
        
-	   
+	   // Custom validation to restrict the white spaces in username / email id
 	   jQuery.validator.addMethod('checkWhiteSpaces', function(value, element){
            
            var stringPattern = /\s/;
@@ -356,7 +267,7 @@ $(document).ready(function(){
            }
        },"Spaces are not allowed in username.");
 	   
-	   
+	   // Custom validation to validate the current date & birth year
 	   jQuery.validator.addMethod('checkDateDifference', function(value, element){
            
 		   var birthYear = parseInt( value.substring(value.lastIndexOf('/') + 1)),
