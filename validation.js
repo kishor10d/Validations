@@ -11,22 +11,21 @@ $(document).ready(function(){
 	
 	var validator = form.validate({
 		rules:
-        {
+		{
 			mobile2: 							// Its an ID of input field
-            {
-                notEqualTo : true,				// mobile number 2 not equal to mobile number 1 validation added
-                checkMobileExist2 : true		// check that this mobile number is already registered in database by custom ajax call validation added
-            }
+			{
+				notEqualTo : true,				// mobile number 2 not equal to mobile number 1 validation added
+				checkMobileExist2 : true		// check that this mobile number is already registered in database by custom ajax call validation added
+			}
 		},
 		messages:
 		{
-			mobile2 : 
-            {
-                notEqualTo : "Please select another number.",		// custom message for this validation
-                checkMobileExist2 : "Mobile number already exist."	// custom message for this validation
-            }
+			mobile2 :
+			{
+				notEqualTo : "Please select another number.",		// custom message for this validation
+				checkMobileExist2 : "Mobile number already exist."	// custom message for this validation
+			}
 		}
-	
 	});
 	
 	// Custom validation to validate mobile number 1 not equal to mobile number 2
