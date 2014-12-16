@@ -4,6 +4,30 @@
 
 
 $(document).ready(function(){
+
+	// Here is the validate method to use the given validation functions (i.e. which are defined with jQuery.validator.addMethod())
+	
+	var form = $('#registrationForm'); // Id of registration form
+	
+	var validator = form.validate({
+		rules:
+        {
+			mobile2: 							// Its an ID of input field
+            {
+                notEqualTo : true,				// mobile number 2 not equal to mobile number 1 validation added
+                checkMobileExist2 : true		// check that this mobile number is already registered in database by custom ajax call validation added
+            }
+		},
+		messages:
+		{
+			mobile2 : 
+            {
+                notEqualTo : "Please select another number.",		// custom message for this validation
+                checkMobileExist2 : "Mobile number already exist."	// custom message for this validation
+            }
+		}
+	
+	});
 	
 	// Custom validation to validate mobile number 1 not equal to mobile number 2
     jQuery.validator.addMethod("notEqualTo", function(value, element)
@@ -16,7 +40,7 @@ $(document).ready(function(){
            {
                return true; 
            }
-       },"");
+       },""); // You can give custom validation message in "" here.. but I specified it in validate() method for coding convenience.
        
 	   // Custom validation to validate less than values
        jQuery.validator.addMethod("lessThanBrothers", function(value, element)
@@ -49,7 +73,7 @@ $(document).ready(function(){
        {
            if(value == 0) { return false; }
           else { return true; }
-       },"This field is required.");
+       },"This field is required.");  // Here I provide custom message, you can specify it in validate method's message block as shown above.
        
        // Custom validation to validate greater than values like to income is greater than for income
        jQuery.validator.addMethod("greaterThan", function(value, element)
@@ -61,7 +85,7 @@ $(document).ready(function(){
                 { return false; }
            else
                 { return true; }
-       },"To Salary is must greater than from.");
+       },"To Salary is must greater than from."); 
        
        // Custom validation to validate file extension ie. .jpg, .doc, .png etc.
        jQuery.validator.addMethod("acceptImgExtension", function(value, element)
