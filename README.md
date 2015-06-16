@@ -35,4 +35,26 @@ Things written by me:
 The field not validates if all rules are not receiving "true" result from validation function.
 
 After this we have to see about the custom methods, not the "var validator" comes in focus.
+The validate() method search for the methods which are associated with the "validator" object.
 
+How to add methods to validator object?
+
+jQuery.validator.addMethod("notEqualTo", function(value, element) {}, "");
+
+Here "notEqualTo" the name of method which associated with "validator" object.
+Inside {}, you have to write your validation logic.
+Inside "", you have to write your custome validation error message; If you are going to provide custome message in "messages" under validate() then you need not mentioned any message here, so you can left it blank.
+
+jQuery.validator.addMethod("notEqualTo", function(value, element)
+       {
+           if(value == $('#mobile1').val() && $('#mobile1').val() != "")
+           {
+                return false; 
+           }
+           else
+           {
+               return true; 
+           }
+       },"");
+       
+In above code, I left "" blank because I already given message.
