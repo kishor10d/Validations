@@ -19,12 +19,17 @@ var validator = form.validate({ });
 Inside the curly braces you can write your validation code.
 
 Inbuilt things in Plugin:
+
 1) rules : These are the rules which you have to validate for particular field.
+
 2) messages : These are the custom messsages shown to user if field is not validated.
 
 Things written by me:
+
 1) mobile2 : This is the field name which I want to validate.
+
 2) notEqualTo : This is the custom rule to validate the mobile2 field.
+
 3) checkMobileExist2 : This is also custom rule to validate the mobile2 field.
 
 The field not validates if all rules are not receiving "true" result from validation function.
