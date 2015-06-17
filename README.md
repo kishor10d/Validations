@@ -44,7 +44,7 @@ jQuery.validator.addMethod("notEqualTo", function(value, element) {}, "");
 ```
 Here **"notEqualTo"** the name of method which associated with **"validator"** object.
 Inside **{}**, you have to write your validation logic.
-Inside **" "**, you have to write your custome validation error message; If you are going to provide custome message in **"messages"** under **validate()** then you need not mentioned any message here, so you can left it blank.
+Inside **" "**, you have to write your custom validation error message; If you are going to provide custome message in **"messages"** under **validate()** then you need not mentioned any message here, so you can left it blank.
 
 ```
 jQuery.validator.addMethod("notEqualTo", function(value, element)
