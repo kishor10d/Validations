@@ -21,17 +21,17 @@ Inside the curly braces you can write your validation code.
 
 Inbuilt things in Plugin:
 
-1) rules : These are the rules which you have to validate for particular field.
+**1) rules :** These are the rules which you have to validate for particular field.
 
-2) messages : These are the custom messsages shown to user if field is not validated.
+**2) messages :** These are the custom messsages shown to user if field is not validated.
 
 Things written by me:
 
-1) mobile2 : This is the field name which I want to validate.
+**1) mobile2 :** This is the field name which I want to validate.
 
-2) notEqualTo : This is the custom rule to validate the mobile2 field.
+**2) notEqualTo :** This is the custom rule to validate the mobile2 field.
 
-3) checkMobileExist2 : This is also custom rule to validate the mobile2 field.
+**3) checkMobileExist2 :** This is also custom rule to validate the mobile2 field.
 
 The field not validates if all rules are not receiving "true" result from validation function.
 
@@ -42,9 +42,9 @@ How to add methods to validator object?
 ```
 jQuery.validator.addMethod("notEqualTo", function(value, element) {}, "");
 ```
-Here "notEqualTo" the name of method which associated with "validator" object.
-Inside {}, you have to write your validation logic.
-Inside "", you have to write your custome validation error message; If you are going to provide custome message in "messages" under validate() then you need not mentioned any message here, so you can left it blank.
+Here **"notEqualTo"** the name of method which associated with **"validator"** object.
+Inside **{}**, you have to write your validation logic.
+Inside **""**, you have to write your custome validation error message; If you are going to provide custome message in **"messages"** under **validate()** then you need not mentioned any message here, so you can left it blank.
 
 ```
 jQuery.validator.addMethod("notEqualTo", function(value, element)
@@ -60,4 +60,4 @@ jQuery.validator.addMethod("notEqualTo", function(value, element)
 },"");
 ```
        
-In above code, I left "" blank because I already given message.
+In above code, I left **""** blank because I already given message.
