@@ -9,12 +9,13 @@ The purpose of this documentation is that to understand the custom validation me
 Here I am giving some examples so that you can understand the custom validation more friendly and you come to know that how awesome this jquery.validation plugin is...
 
 You can declare the variable for form like below
-
+```
 var form = $('#registrationForm');
-
+```
 By using this "form" elemenent you can validate your form, look at the code below.
-
+```
 var validator = form.validate({ });
+```
 
 Inside the curly braces you can write your validation code.
 
@@ -38,9 +39,9 @@ After this we have to see about the custom methods, not the "var validator" come
 The validate() method search for the methods which are associated with the "validator" object.
 
 How to add methods to validator object?
-
+```
 jQuery.validator.addMethod("notEqualTo", function(value, element) {}, "");
-
+```
 Here "notEqualTo" the name of method which associated with "validator" object.
 Inside {}, you have to write your validation logic.
 Inside "", you have to write your custome validation error message; If you are going to provide custome message in "messages" under validate() then you need not mentioned any message here, so you can left it blank.
