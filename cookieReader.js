@@ -31,6 +31,7 @@ var printAllCookies = function(cookieString){
 	
 	for(key in cookieString){
 		console.log("key : "+ key +   "   value : " + decodeURIComponent(cookieString[key]));
+		// decodeURIComponent used to decode the encoded cookie
 	}
 };
 
