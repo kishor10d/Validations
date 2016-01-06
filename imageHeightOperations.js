@@ -1,5 +1,5 @@
 /**
- * File name : imageHeightOperations.js
+ * File name : imageHeightOperations.js : Javascript File
  * 
  * This file is used to do the file operations on client browser
  * 
