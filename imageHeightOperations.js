@@ -1,3 +1,10 @@
+/**
+ * File name : imageHeightOperations.js
+ * 
+ * This file is used to do the file operations on client browser
+ * 
+ * @author Kishor Mali
+ */
 
 /**
  * This function used to read image before upload from file upload control
