@@ -17,12 +17,12 @@ var ajaxHandler = function(callUrl, postData, method, asyncStatus,  successCallb
 		url : callUrl,
 		data : JSON.stringify(postData),
 		type : method,
-		async : asyncStatus,
-		success : successCallback,
-		error: function(xhr, textStatus, errorThrown) {
-			if(xhr.status = 400){
-				console.log('Method Not Found');
-			}
-        }
+		async : asyncStatus
+	})
+	.done(successCallback)
+	.error(function(xhr, textStatus, errorThrown) {
+		if(xhr.status = 400){
+			console.log('Method Not Found');
+		}
 	});
 };
